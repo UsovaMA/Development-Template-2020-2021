@@ -1,1 +1,1 @@
-create_project_lib(mylibrary)
+create_project_lib(priority_queue)
