@@ -1,5 +1,5 @@
 #pragma once
-#include <list>
+#include "TList.h"
 #include <iostream>
 #include <vector>
 
@@ -7,10 +7,13 @@ template<class T>
 class QueueOnList
 {
 private:
-	std::list<T> list;
+	TList<T> list;
 public:
+	QueueOnList<T>();
+	QueueOnList<T>(T*arr, int size);
 	void pop();
 	void push(T val);
+	void sorted_push(T val);
 	int size();
 	bool empty();
 	T front();
@@ -25,25 +28,31 @@ inline void QueueOnList<T>::pop()
 	{
 		throw std::exception("queue is empty!");
 	}
-	list.pop_back();
+	list.DelLast();
 }
 
 template<class T>
 inline void QueueOnList<T>::push(T val)
 {
-	list.push_front(val);
+	list.InsFirst(val);
+}
+
+template<class T>
+inline void QueueOnList<T>::sorted_push(T val)
+{
+	list.sorted_push(val);
 }
 
 template<class T>
 inline int QueueOnList<T>::size()
 {
-	return list.size();
+	return list.GetListLenght();
 }
 
 template<class T>
 inline bool QueueOnList<T>::empty()
 {
-	if (list.size() == 0)
+	if (list.GetListLenght() == 0)
 	{
 		return true;
 	}
@@ -57,7 +66,7 @@ inline T QueueOnList<T>::front()
 	{
 		throw std::exception("queue is empty!");
 	}
-	return list.back();
+	return list.get(list.GetListLenght()-1);
 }
 
 template<class T>
@@ -67,16 +76,30 @@ inline T QueueOnList<T>::back()
 	{
 		throw std::exception("queue is empty!");
 	}
-	return list.front();
+	return list.get(0);
 }
 
 template<class T>
 inline void QueueOnList<T>::print()
 {
-	for (const auto& i : list)
+	for (int i = 0;i<list.GetListLenght();i++)
 	{
-		std::cout << i<<" ";
+		std::cout << list.get(i)<<" ";
 	}
 	std::cout << "  size = "<<size();
 	std::cout << "\n";
+}
+
+template<class T>
+inline QueueOnList<T>::QueueOnList()
+{
+}
+
+template<class T>
+inline QueueOnList<T>::QueueOnList(T* arr, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		push(arr[i]);
+	}
 }
