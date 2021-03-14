@@ -1,9 +1,32 @@
-#include <stdio.h>
-#include "add.h"
+#include <iostream>
+#include "list.h"
 
-int main() {
-  printf("hello!\n");
-  printf("%d\n", add(1, 2));
+using namespace std;
 
-  return 0;
+int main()
+{
+    List my_list;
+
+    my_list.push(20);
+    my_list.push(4);
+    my_list.push(15);
+    my_list.push(10);
+
+    /*delaem loop*/
+    my_list.head->next->next->next->next = my_list.head->next;
+    /*20 -> 4 -> 15 -> 10 -> 4 -> ...*/
+
+    if (my_list.HareTurtleLoopDetect())
+        cout << "Loop found";
+    else
+        cout << "No Loop";
+
+    cout << endl;
+
+    if (my_list.ReverseLoopDetect())
+        cout << "Loop found";
+    else
+        cout << "No Loop";
+
+    return 0;
 }
