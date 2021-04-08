@@ -48,6 +48,12 @@ std::string Polinom::to_str()
 	return res;
 }
 
+void Polinom::DelPolinom()
+{
+	polinom.clear();
+	set_null();
+}
+
 void Polinom::del_nulls()
 {
 	it.init();

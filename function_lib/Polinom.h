@@ -62,6 +62,7 @@ public:
 	int Calculate(int x, int y, int z);
 
 	std::string to_str();
+	void DelPolinom();
 
 private:
 	void del_nulls();

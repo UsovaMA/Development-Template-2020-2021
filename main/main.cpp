@@ -92,9 +92,9 @@ int main()
 		case 5:
 			system("cls");
 			std::cout << "Input polinoms p1 and p2:\n";
-			p1 -= p1;
-			p2 -= p2;
-			res -= res;
+			p1.DelPolinom();
+			p2.DelPolinom();
+			res.DelPolinom();
 			input_polinom(p1);
 			input_polinom(p2);
 			break;
