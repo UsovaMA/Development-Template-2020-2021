@@ -10,7 +10,7 @@ TEST(monom, can_get_K)
 {
 TMonom monom(5, 3, new double[3]{ 1, 2, 3 });
 
-	EXPECT_EQ(monom.GetK(), 2);
+	EXPECT_EQ(monom.GetK(), 5);
 }
 
 TEST(monom, can_get_dim)
@@ -43,28 +43,6 @@ TEST(monomial, can_ravno)
 
 	EXPECT_EQ(5, monom2.GetK());
 	EXPECT_EQ(3, monom2[2]);
-}
-
-
-TEST(monomial, can_plus)
-{
-	TMonom monom1(3, 3, new double[3]{ 1, 2, 3 });
-	TMonom monom2(3, 3, new double[3]{ 4, 5, 6 });
-	ASSERT_NO_THROW(monom1 + monom2);
-	TMonom* m3 = monom1 + monom2;
-	EXPECT_EQ(4, m3[0][0]);
-	EXPECT_EQ(1, m3[1][0]);
-}
-
-TEST(monomial, can_minus)
-{
-	TMonom monom1(4, 3, new double[3]{ 1, 2, 3 });
-	TMonom monom2(3, 3, new double[3]{ 1, 2, 3 });
-
-	ASSERT_NO_THROW(monom1 - monom2);
-	TMonom* m3 = monom1 - monom2;
-
-	EXPECT_EQ(1, m3[0].GetK());
 }
 
 TEST(monomial, can_multiply)

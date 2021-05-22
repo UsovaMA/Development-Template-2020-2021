@@ -9,6 +9,7 @@ public:
 	~TPolinom();
 
 	TPolinom& operator += (const TMonom& other);
+	TPolinom& operator *= (const TMonom& other);
 	TPolinom operator * (const TPolinom& other);
 	TPolinom operator + (const TPolinom& other);
 	TPolinom operator - (const TPolinom& other);

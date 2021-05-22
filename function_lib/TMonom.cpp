@@ -103,54 +103,6 @@ TMonom& TMonom::operator=(const TMonom& other)
 	return *this;
 }
 
-TMonom* TMonom::operator+(const TMonom& other)
-{
-	if (data.dim != other.data.dim)
-		throw - 1;
-	TMonom* result = nullptr;
-	if (*this == other)
-	{
-		result = new TMonom(*this);
-		result->data.K += other.data.K;
-	}
-	else
-	{
-		result = new TMonom[2];
-		if (*this > other)
-		{
-			result[0] = *this;
-			result[1] = other;
-		}
-		else
-		{
-
-			result[0] = other;
-			result[1] = *this;
-		}
-	}
-	return result;
-}
-
-TMonom* TMonom::operator-(const TMonom& other)
-{
-	if (data.dim != other.data.dim)
-		throw - 1;
-	TMonom* result = nullptr;
-	if (*this == other)
-	{
-		result = new TMonom(*this);
-		result->data.K -= other.data.K;
-	}
-	else
-	{
-		result = new TMonom[2];
-		result[0] = *this;
-		result[1] = other;
-		result[1].data.K *= -1;
-	}
-	return result;
-}
-
 TMonom TMonom::operator*(const TMonom& other)
 {
 	TMonom result(*this);

@@ -46,8 +46,6 @@ public:
 
 	TMonom& operator = (const TMonom& other);
 
-	TMonom* operator + (const TMonom& other);
-	TMonom* operator - (const TMonom& other);
 	TMonom operator * (const TMonom& other);
 	TMonom operator / (const TMonom& other);
 

@@ -22,5 +22,9 @@ int main() {
 	P3 = P + P2;
 	cout << "Polinom P3 = P + P2 = " << P3 << endl;
 
+	P3 *= A;
+	cout << "P3 *= A = " << P3 << endl;
+
+
 	return 0;
 }

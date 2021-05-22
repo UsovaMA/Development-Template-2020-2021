@@ -44,6 +44,19 @@ TPolinom& TPolinom::operator+=(const TMonom& other)
 	return *this;
 }
 
+TPolinom& TPolinom::operator*=(const TMonom& other)
+{
+	ListIterator<TData> i = this->begin();
+	while (i.doNext())
+	{
+		if ((*i).dim != other.data.dim)
+			throw - 1;
+		*i = (*i) * other.data;
+		i++;
+	}
+	return *this;
+}
+
 TPolinom TPolinom::operator*(const TPolinom& other)
 {
 	TPolinom result;
