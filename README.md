@@ -17,3 +17,7 @@ Template for developing and testing C++ programs
 ```
 ## Build project with cmake
 cmake -G "Visual Studio 15 2017" <path to sourse files>
+
+#Finally Test
+
+https://forms.gle/JiaxnmwcQmiXz41y9
